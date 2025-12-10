@@ -274,6 +274,34 @@ tensorboard --logdir=log/ --host=0.0.0.0 --port=6006
 - 总训练时长
 - 模型配置信息
 
+#### 5.3.3 IMAGES 标签页
+
+查看模型生成的混淆矩阵：
+
+- **`Confusion_Matrix/test`**: 测试集上的混淆矩阵热力图
+- **`Confusion_Matrix/test_ema`**: EMA模型测试集上的混淆矩阵热力图（如果启用了EMA）
+
+**混淆矩阵解读**：
+- 对角线元素表示正确分类的样本数量
+- 非对角线元素表示分类错误的样本数量
+- 颜色越深表示该单元格数值越大
+- 可直观查看哪些类别容易混淆
+
+### 5.3.4 快速启动 TensorBoard
+
+使用项目提供的脚本快速启动 TensorBoard：
+
+```bash
+# 自动查找所有日志目录
+python lx_Interface/view_tensorboard.py
+
+# 指定特定日志目录
+python lx_Interface/view_tensorboard.py --logdir path/to/specific/log
+
+# 指定端口和主机
+python lx_Interface/view_tensorboard.py --port 6007 --host 0.0.0.0
+```
+
 ### 5.4 对比不同实验
 
 然后在浏览器中：
